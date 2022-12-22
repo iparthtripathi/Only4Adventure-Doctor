@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChooseSpec">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="18dp"
+                    android:backgroundTint="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/all"
+                        android:text="All"
+                        android:drawablePadding="10sp"
+                        android:textSize="20sp"
+                        android:onClick="spec"
+                        android:tag="0"
+                        android:layout_margin="10dp"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/black"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="18dp"
+                    android:backgroundTint="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/cardio"
+                        android:text="Cardiologist"
+                        android:onClick="spec"
+                        android:drawablePadding="10sp"
+                        android:textSize="20sp"
+                        android:layout_margin="10dp"
+                        android:tag="1"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/black"/>
+
+                </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="18dp"
+                    android:backgroundTint="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/dentist"
+                        android:text="Dentist"
+                        android:drawablePadding="10sp"
+                        android:textSize="20sp"
+                        android:onClick="spec"
+                        android:tag="2"
+                        android:layout_margin="10dp"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/black"/>
+
+                </androidx.cardview.widget.CardView>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="18dp"
+                    android:backgroundTint="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ent"
+                        android:text="ENT Specialist"
+                        android:drawablePadding="10sp"
+                        android:textSize="20sp"
+                        android:onClick="spec"
+                        android:tag="3"
+                        android:layout_margin="10dp"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/black"/>
+
+                </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="18dp"
+                    android:backgroundTint="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/gynaecologist"
+                        android:text="Gynecologist"
+                        android:drawablePadding="10sp"
+                        android:textSize="20sp"
+                        android:layout_margin="10dp"
+                        android:onClick="spec"
+                        android:tag="4"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/black"/>
+
+                </androidx.cardview.widget.CardView>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="18dp"
+                    android:backgroundTint="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/orthopaedic"
+                        android:text="Orthopaedist"
+                        android:drawablePadding="10sp"
+                        android:textSize="20sp"
+                        android:onClick="spec"
+                        android:tag="5"
+                        android:layout_margin="10dp"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/black"/>
+
+                </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="18dp"
+                    android:backgroundTint="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/psychiatrists"
+                        android:text="Psychiatrists"
+                        android:drawablePadding="10sp"
+                        android:textSize="20sp"
+                        android:layout_margin="10dp"
+                        android:onClick="spec"
+                        android:tag="6"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/black"/>
+
+                </androidx.cardview.widget.CardView>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="18dp"
+                    android:backgroundTint="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/radiologist"
+                        android:text="Radiologist"
+                        android:drawablePadding="10sp"
+                        android:textSize="20sp"
+                        android:onClick="spec"
+                        android:tag="7"
+                        android:layout_margin="10dp"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/black"/>
+
+                </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="18dp"
+                    android:backgroundTint="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/pulmonologist"
+                        android:text="Pulmonologist"
+                        android:onClick="spec"
+                        android:drawablePadding="10sp"
+                        android:textSize="20sp"
+                        android:layout_margin="10dp"
+                        android:textAlignment="gravity"
+                        android:tag="8"
+                        android:textColor="@color/black"/>
+
+                </androidx.cardview.widget.CardView>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="18dp"
+                    android:backgroundTint="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/neurologist"
+                        android:text="Neurologist"
+                        android:drawablePadding="10sp"
+                        android:textSize="20sp"
+                        android:layout_margin="10dp"
+                        android:onClick="spec"
+                        android:textAlignment="gravity"
+                        android:tag="9"
+                        android:textColor="@color/black"/>
+
+                </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="18dp"
+                    android:backgroundTint="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/allergists"
+                        android:text="Allergists"
+                        android:onClick="spec"
+                        android:drawablePadding="10sp"
+                        android:textSize="20sp"
+                        android:layout_margin="10dp"
+                        android:tag="10"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/black"/>
+
+                </androidx.cardview.widget.CardView>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="18dp"
+                    android:backgroundTint="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/gastroenterologists"
+                        android:text="Gastroenterologists"
+                        android:drawablePadding="10sp"
+                        android:textSize="20sp"
+                        android:layout_margin="10dp"
+                        android:onClick="spec"
+                        android:tag="11"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/black"/>
+
+                </androidx.cardview.widget.CardView>
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="18dp"
+                    android:backgroundTint="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/urologists"
+                        android:text="Urologists"
+                        android:drawablePadding="10sp"
+                        android:textSize="20sp"
+                        android:onClick="spec"
+                        android:tag="12"
+                        android:layout_margin="10dp"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/black"/>
+
+                </androidx.cardview.widget.CardView>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="18dp"
+                    android:backgroundTint="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/otolaryngologists"
+                        android:text="Otolaryngologists"
+                        android:drawablePadding="10sp"
+                        android:textSize="20sp"
+                        android:onClick="spec"
+                        android:tag="13"
+                        android:layout_margin="10dp"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/black"/>
+
+                </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="18dp"
+                    android:backgroundTint="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/rheumatologists"
+                        android:text="Rheumatologists"
+                        android:drawablePadding="10sp"
+                        android:textSize="20sp"
+                        android:onClick="spec"
+                        android:layout_margin="10dp"
+                        android:tag="14"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/black"/>
+
+                </androidx.cardview.widget.CardView>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="18dp"
+                    android:backgroundTint="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/anesthesiologists"
+                        android:text="Anesthesiologists"
+                        android:drawablePadding="10sp"
+                        android:textSize="20sp"
+                        android:tag="15"
+                        android:onClick="spec"
+                        android:layout_margin="10dp"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/black"/>
+
+                </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".choose">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="18dp">
+
+        <EditText
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/editfield"
+            android:ems="10"
+            android:fontFamily="@font/dm_sans"
+            android:hint="Enter Your Location"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:textColor="@color/black"
+            android:textColorHint="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="@+id/SignUp_Name"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/SignUp_Name"
+            app:layout_constraintTop_toBottomOf="@+id/SignUp_Name" />
+
+        <Button
+            android:id="@+id/search"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/primary_button"
+            android:text="Search By Location"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dm_sans"
+            android:textAlignment="center"
+            android:layout_marginTop="25dp"
+            android:text="OR"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            tools:layout_editor_absoluteX="131dp"
+            tools:layout_editor_absoluteY="680dp" />
+
+        <Button
+            android:id="@+id/spec"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/primary_button"
+            android:text="Search By Specialization"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
