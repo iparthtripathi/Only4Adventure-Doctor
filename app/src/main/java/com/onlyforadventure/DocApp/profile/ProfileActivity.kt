@@ -4,18 +4,29 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.*
 import com.onlyforadventure.DocApp.auth.User
 import com.onlyforadventure.DocApp.databinding.ActivityProfileBinding
-import com.google.firebase.database.*
+import com.squareup.picasso.Picasso
+import java.io.IOException
+import java.net.HttpURLConnection
+import java.net.URL
+
 
 class ProfileActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityProfileBinding
     private lateinit var dbreference : DatabaseReference
-    private lateinit var user: User
+    private lateinit var user: FirebaseUser
     private lateinit var sharedPreference : SharedPreferences
     private lateinit var userName : String
     private lateinit var userEmail : String
@@ -41,13 +52,26 @@ class ProfileActivity : AppCompatActivity() {
     private fun getUserData() {
 
         getDataFromSharedPreference()
-        dbreference = FirebaseDatabase.getInstance().reference
         binding.name.text = "Name :  $userName"
         binding.age.text = "Age : $age"
         binding.email.text = "Email : $userEmail"
         binding.phone.text = "Phone Number : $userPhone"
+        dbreference = FirebaseDatabase.getInstance().getReference("Users")
+        user= FirebaseAuth.getInstance().currentUser!!
+        val uID=user.uid
+        dbreference.child(uID).addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val user = snapshot.getValue(User::class.java)
+                val imgUrl= user?.imgUrl
+                val imgBit=Picasso.get().load(imgUrl).into(binding.profilePicture)
+            }
+            override fun onCancelled(error: DatabaseError) {}
+        })
+
+
 
     }
+
 
     override fun onStart() {
         super.onStart()
