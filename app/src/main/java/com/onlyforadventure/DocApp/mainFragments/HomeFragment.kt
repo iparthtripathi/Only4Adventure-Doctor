@@ -14,7 +14,6 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.FirebaseError
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -56,6 +55,7 @@ class HomeFragment : Fragment()  {
     private lateinit var searchedType: String
 
     private lateinit var sharedPreference : SharedPreferences
+    private lateinit var tagged : String
 
 
 
@@ -115,11 +115,6 @@ class HomeFragment : Fragment()  {
             false
         }
 
-
-
-
-
-
         binding.slider.animDuration = 150
         binding.slider.onSlideCompleteListener = object : SlideToActView.OnSlideCompleteListener {
             override fun onSlideComplete(view: SlideToActView) {
@@ -140,14 +135,63 @@ class HomeFragment : Fragment()  {
             }
         }
 
+        binding.allview?.setOnClickListener{
+            specialise(binding.allview!!.getTag().toString())
+        }
+        binding.cardioView?.setOnClickListener{
+            specialise(binding.cardioView!!.getTag().toString())
+        }
+        binding.orthoView?.setOnClickListener{
+            specialise(binding.orthoView!!.getTag().toString())
+        }
+        binding.dentistView?.setOnClickListener{
+            specialise(binding.dentistView!!.getTag().toString())
+        }
+        binding.entView?.setOnClickListener{
+            specialise(binding.entView!!.getTag().toString())
+        }
+        binding.gynacView?.setOnClickListener{
+            specialise(binding.gynacView!!.getTag().toString())
+        }
+        binding.psychoView?.setOnClickListener{
+            specialise(binding.psychoView!!.getTag().toString())
+        }
+        binding.radioView?.setOnClickListener{
+            specialise(binding.radioView!!.getTag().toString())
+        }
+        binding.pulmonoView?.setOnClickListener{
+            specialise(binding.pulmonoView!!.getTag().toString())
+        }
+        binding.neuroView?.setOnClickListener{
+            specialise(binding.neuroView!!.getTag().toString())
+        }
+        binding.allergView?.setOnClickListener{
+            specialise(binding.allergView!!.getTag().toString())
+        }
+        binding.gastroView?.setOnClickListener{
+            specialise(binding.gastroView!!.getTag().toString())
+        }
+        binding.uroView?.setOnClickListener{
+            specialise(binding.uroView!!.getTag().toString())
+        }
+        binding.otoView?.setOnClickListener{
+            specialise(binding.otoView!!.getTag().toString())
+        }
+        binding.rheumView?.setOnClickListener{
+            specialise(binding.rheumView!!.getTag().toString())
+        }
+        binding.anesthView?.setOnClickListener{
+            specialise(binding.anesthView!!.getTag().toString())
+        }
 
-        binding.search.setOnClickListener{
+        binding.locationData?.setOnClickListener{
             val intent=Intent(requireActivity(),choose::class.java)
             startActivity(intent)
         }
 
         return binding.root
     }
+
 
 
 
@@ -197,6 +241,12 @@ class HomeFragment : Fragment()  {
         Handler().postDelayed({
             getDataFromSharedPreference()
         }, 1000)
+    }
+
+     fun specialise(tag:String) {
+        val intent = Intent(requireActivity(), displayDoctor::class.java)
+        intent.putExtra("tag", tag)
+        startActivity(intent)
     }
 
     @SuppressLint("SetTextI18n", "CommitPrefEdits")
