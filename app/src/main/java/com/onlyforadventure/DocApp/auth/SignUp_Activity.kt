@@ -53,6 +53,7 @@ class SignUp_Activity : AppCompatActivity() {
         if (isDoctor == "Doctor"){
             binding.menuDoctorType.visibility = View.VISIBLE
             binding.location.visibility=View.VISIBLE
+            binding.license.visibility=View.VISIBLE
         }
 
         // Hide and Show Password
@@ -132,7 +133,7 @@ class SignUp_Activity : AppCompatActivity() {
                         //Create user object
                         val statsData = "0:0:0:0:0?0:0:0:0:0?0:0:0:0:0?0:0:0:0:0"
                         val user = User(binding.SignUpName.text.toString().trim(), binding.SignUpEmail.text.toString().trim(),
-                            RemoveCountryCode.remove(binding.SignUpPhone.text.toString().trim()), uid, isDoctor, age, binding.SignUpTypeOfDoctor.text.toString().trim(), binding.location.text.toString().trim(),
+                            RemoveCountryCode.remove(binding.SignUpPhone.text.toString().trim()), uid, isDoctor, age, binding.SignUpTypeOfDoctor.text.toString().trim(),"false",binding.license.text.toString().trim(), binding.location.text.toString().trim(),
                             imgUrl, statsData, "false")
 
                         //add user data in the Realtime Database

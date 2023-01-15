@@ -16,14 +16,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.*
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import com.onlyforadventure.DocApp.HomeActivity
 import com.onlyforadventure.DocApp.R
 import com.onlyforadventure.DocApp.databinding.ActivitySignInBinding
 import com.onlyforadventure.DocApp.encryptionHelper.Encryption
+import com.squareup.picasso.Picasso
 import java.util.*
 
 class SignIn_Activity : AppCompatActivity() {
@@ -31,8 +29,11 @@ class SignIn_Activity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var auth: FirebaseAuth
+    private lateinit var dbreference : DatabaseReference
+    private lateinit var user: FirebaseUser
     lateinit var googleSignInOptions: GoogleSignInOptions
     lateinit var googleSignInClient: GoogleSignInClient
+    lateinit var verified: String
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +46,18 @@ class SignIn_Activity : AppCompatActivity() {
         val editor = sharedPreference.edit()
 
         auth = FirebaseAuth.getInstance()
+
+        dbreference = FirebaseDatabase.getInstance().getReference("Users")
+        user= FirebaseAuth.getInstance().currentUser!!
+        val uID=user.uid
+        dbreference.child(uID).addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val user = snapshot.getValue(User::class.java)
+                verified= user?.isVerfied.toString()
+            }
+            override fun onCancelled(error: DatabaseError) {}
+        })
+
         googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build()
         googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions)
@@ -94,6 +107,7 @@ class SignIn_Activity : AppCompatActivity() {
             val email = binding.SignInEmail.text.toString()
             val password = binding.SignInPassword.text.toString()
 
+            if(verified=="true"){
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 if (password.length > 7) {
 
@@ -149,9 +163,12 @@ class SignIn_Activity : AppCompatActivity() {
                 Toast.makeText(this, "Please enter the details!", Toast.LENGTH_SHORT).show()
             }
         }
-
-
+        else{
+            Toast.makeText(this,"Please wait while our servers verify your License ID",Toast.LENGTH_LONG).show()
+        }
+        }
     }
+
 
     private fun SignIn() {
         val intent = googleSignInClient.signInIntent

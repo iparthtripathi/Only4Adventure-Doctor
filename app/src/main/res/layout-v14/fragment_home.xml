@@ -113,6 +113,7 @@
                     android:layout_width="350dp"
                     android:layout_height="55dp"
                     android:background="@drawable/editfield"
+                    android:gravity="center_vertical"
                     android:ems="10"
                     android:fontFamily="@font/dm_sans"
                     android:drawableStart="@drawable/serch"
@@ -621,7 +622,7 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <EditText
+                <TextView
                     android:id="@+id/locationData"
                     android:layout_width="350dp"
                     android:layout_height="55dp"
@@ -629,6 +630,7 @@
                     android:ems="10"
                     android:fontFamily="@font/dm_sans"
                     android:drawableStart="@drawable/serch"
+                    android:gravity="center_vertical"
                     android:drawablePadding="5dp"
                     android:hint="Enter a Location"
                     android:imeOptions="actionDone"

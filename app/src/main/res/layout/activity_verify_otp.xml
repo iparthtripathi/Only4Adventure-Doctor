@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".auth.verifyOTP"
-    android:background="@color/lightBlue">
+    android:background="@drawable/background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,101 +31,114 @@
             android:textColor="@color/white"
             android:textSize="17sp" />
 
-        <com.chaos.view.PinView
-            android:id="@+id/firstPinView"
-            style="@style/PinWidget.PinView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:background="@null"
-            android:cursorVisible="true"
-            android:inputType="text"
-            android:itemBackground="@color/cream"
-            android:padding="5dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:cursorColor="@color/black"
-            app:cursorWidth="0dp"
-            app:hideLineWhenFilled="true"
-            app:itemCount="6"
-            app:itemHeight="50dp"
-            app:itemRadius="7dp"
-            app:itemSpacing="7dp"
-            app:itemWidth="48dp"
-            app:lineWidth="0dp"
-            app:viewType="rectangle" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="65dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="610dp"
+            android:background="@drawable/curve_box_final"
+            android:orientation="vertical">
 
-            <TextView
+            <com.chaos.view.PinView
+                android:id="@+id/firstPinView"
+                style="@style/PinWidget.PinView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Didn't receive the code?"
+                android:layout_marginTop="100dp"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:inputType="text"
+                android:itemBackground="@color/lighterBlue"
+                android:padding="5dp"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cursorColor="@color/black"
+                app:cursorWidth="0dp"
+                android:autofillHints="smsOTPCode"
+                android:importantForAutofill="yes"
+                app:hideLineWhenFilled="true"
+                app:itemCount="6"
+                app:itemHeight="50dp"
+                app:itemRadius="7dp"
+                app:itemSpacing="7dp"
+                app:itemWidth="48dp"
+                app:lineWidth="0dp"
+                app:viewType="rectangle" />
 
-            <TextView
-                android:id="@+id/requestOTP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="4dp"
-                android:clickable="true"
-                android:text="Request again"
-                android:textColor="@color/deepBlue"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="70dp" />
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="100dp">
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_width="61dp"
-                android:layout_height="58dp"
-                android:layout_centerInParent="true"
-                android:visibility="gone"
-                android:indeterminate="true"
-                android:indeterminateTintMode="src_atop"
-                android:indeterminateTint="@color/deepBlue"/>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/verifyOTP"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginStart="9dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="9dp"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="9dp"
-
-                android:clickable="true"
-                app:cardBackgroundColor="@color/deepBlue"
-                app:cardCornerRadius="15dp">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="65dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Verify and Create Account"
-                    android:textColor="@color/white"
-                    android:textSize="15sp" />
-            </androidx.cardview.widget.CardView>
+                    android:text="Didn't receive the code?"
+                    android:textColor="@color/lightBlue"
+                    android:textSize="14sp" />
 
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/requestOTP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:clickable="true"
+                    android:text="Request again"
+                    android:textColor="@color/deepBlue"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="70dp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="100dp">
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="61dp"
+                    android:layout_height="58dp"
+                    android:layout_centerInParent="true"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/deepBlue"
+                    android:indeterminateTintMode="src_atop"
+                    android:visibility="gone" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/verifyOTP"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginEnd="9dp"
+                    android:layout_marginBottom="9dp"
+
+                    android:clickable="true"
+                    app:cardBackgroundColor="@color/deepBlue"
+                    app:cardCornerRadius="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Verify and Create Account"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

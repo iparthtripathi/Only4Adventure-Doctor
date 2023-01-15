@@ -7,86 +7,99 @@
     android:background="@drawable/background"
     tools:context=".auth.SignUp_Activity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="60dp"
-        android:paddingBottom="30dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:background="@drawable/curve_box_final"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="start"
-            android:orientation="horizontal"
+            android:background="@drawable/curve_box_final"
+            android:paddingLeft="30dp"
+            android:paddingTop="60dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toStartOf="parent">
+
+
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:gravity="start"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/signUpHeader"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/dm_sans_bold"
-                    android:text="Sign Up"
-                    android:textColor="@color/black"
-                    android:textSize="35sp"
+                    android:gravity="start"
+                    android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.105"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/signUph2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/dm_sans"
-                    android:text="Create an account"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="@+id/signUpHeader"
-                    app:layout_constraintTop_toBottomOf="@+id/signUpHeader" />
+                    <TextView
+                        android:id="@+id/signUpHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/dm_sans_bold"
+                        android:text="Sign Up"
+                        android:textColor="@color/black"
+                        android:textSize="35sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.105"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/signUph2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/dm_sans"
+                        android:text="Create an account"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/signUpHeader"
+                        app:layout_constraintTop_toBottomOf="@+id/signUpHeader" />
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="70sp"
+                    android:layout_height="match_parent" />
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profilePic"
+                    android:layout_width="85sp"
+                    android:layout_height="90sp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/adduser2" />
+
 
             </LinearLayout>
 
-            <Space
-                android:layout_width="100dp"
-                android:layout_height="match_parent"/>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profilePic"
-                android:layout_width="76dp"
-                android:layout_height="77dp"
-                android:layout_gravity="center"
-                android:src="@drawable/personpic" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="end"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:gravity="end"
+                android:orientation="vertical">
 
                 <EditText
                     android:id="@+id/SignUp_Name"
@@ -108,12 +121,13 @@
                     android:id="@+id/menu_doctorType"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                     android:layout_width="350dp"
-                    android:layout_height="50dp"
+                    android:layout_height="70dp"
                     android:layout_marginTop="20dp"
-                    android:visibility="gone"
                     android:background="@drawable/editfield"
                     android:hint="@string/specialization"
+                    android:paddingLeft="20sp"
                     android:textColorHint="@android:color/darker_gray"
+                    android:visibility="gone"
                     app:boxBackgroundColor="#F5F8FA"
                     app:layout_constraintEnd_toEndOf="@+id/select_time"
                     app:layout_constraintStart_toStartOf="@+id/select_time"
@@ -131,11 +145,29 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <EditText
+                    android:id="@+id/license"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/editfield"
+                    android:ems="10"
+                    android:fontFamily="@font/dm_sans"
+                    android:hint="License Number"
+                    android:inputType="text"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/SignUp_Name"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/SignUp_Name"
+                    app:layout_constraintTop_toBottomOf="@+id/SignUp_Name" />
+
+                <EditText
                     android:id="@+id/location"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="16dp"
-                    android:visibility="gone"
                     android:background="@drawable/editfield"
                     android:ems="10"
                     android:fontFamily="@font/dm_sans"
@@ -144,10 +176,12 @@
                     android:paddingLeft="20dp"
                     android:textColor="@color/black"
                     android:textColorHint="@android:color/darker_gray"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="@+id/SignUp_Name"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/SignUp_Name"
                     app:layout_constraintTop_toBottomOf="@+id/SignUp_Name" />
+
                 <EditText
                     android:id="@+id/SignUp_Email"
                     android:layout_width="match_parent"
@@ -190,15 +224,15 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="16dp"
                     android:background="@drawable/editfield"
+                    android:drawableRight="@drawable/visibility_off"
                     android:ems="10"
                     android:fontFamily="@font/dm_sans"
                     android:hint="Password"
                     android:inputType="textPassword"
-                    android:paddingStart="20dp"
                     android:longClickable="false"
-                    android:textColor="@color/black"
-                    android:drawableRight="@drawable/visibility_off"
+                    android:paddingStart="20dp"
                     android:paddingRight="15dp"
+                    android:textColor="@color/black"
                     android:textColorHint="@android:color/darker_gray"
                     app:layout_constraintEnd_toEndOf="@+id/SignUp_Email"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -219,41 +253,45 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/SignUp_Password" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="@+id/createAccount"
-                app:layout_constraintStart_toStartOf="@+id/createAccount"
-                app:layout_constraintTop_toBottomOf="@+id/createAccount"
-                app:layout_constraintVertical_bias="0.529">
-
-                <TextView
-                    android:id="@+id/sign_in_suggestion"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/dm_sans"
-                    android:text="Already have an account?"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    tools:layout_editor_absoluteX="131dp"
-                    tools:layout_editor_absoluteY="680dp" />
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="@+id/createAccount"
+                    app:layout_constraintStart_toStartOf="@+id/createAccount"
+                    app:layout_constraintTop_toBottomOf="@+id/createAccount"
+                    app:layout_constraintVertical_bias="0.529">
 
-                <TextView
-                    android:id="@+id/toSignIn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:fontFamily="@font/dm_sans_bold"
-                    android:text="Sign In"
-                    android:textColor="@color/light_blue"
-                    android:textSize="15sp"
-                    tools:layout_editor_absoluteX="266dp"
-                    tools:layout_editor_absoluteY="676dp" />
+                    <TextView
+                        android:id="@+id/sign_in_suggestion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/dm_sans"
+                        android:text="Already have an account?"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        tools:layout_editor_absoluteX="131dp"
+                        tools:layout_editor_absoluteY="680dp" />
+
+                    <TextView
+                        android:id="@+id/toSignIn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:fontFamily="@font/dm_sans_bold"
+                        android:text="Sign In"
+                        android:textColor="@color/light_blue"
+                        android:textSize="15sp"
+                        tools:layout_editor_absoluteX="266dp"
+                        tools:layout_editor_absoluteY="676dp" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
+            </ScrollView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
