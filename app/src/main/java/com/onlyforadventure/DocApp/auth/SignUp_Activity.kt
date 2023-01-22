@@ -139,6 +139,7 @@ class SignUp_Activity : AppCompatActivity() {
                         //add user data in the Realtime Database
                         db.child(u?.uid!!).setValue(user).addOnCompleteListener { it1 ->
                             if (it1.isSuccessful) {
+                                db.child(u.uid).child("verified").child("verfied").setValue("false")
                                 u.sendEmailVerification()
                                 Toast.makeText(this, "Email Verification sent to your mail", Toast.LENGTH_LONG).show()
                                 val intent=Intent(this,enterMobile::class.java)

@@ -2,6 +2,7 @@ package com.onlyforadventure.DocApp;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.onlyforadventure.DocApp.appointment.AppointmentBooking;
 
 import java.util.ArrayList;
 
@@ -40,6 +43,20 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.userViewHolder
         holder.email.setText(userModel.getEmail());
         holder.specialization.setText(userModel.getSpecialization());
         holder.phone.setText(userModel.getPhone());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                intent = new Intent(context, AppointmentBooking.class);
+                intent.putExtra("Duid", userModel.getUid());
+                intent.putExtra("Dname", userModel.getName());
+                intent.putExtra("Demail", userModel.getEmail());
+                intent.putExtra("Dphone", userModel.getPhone());
+                intent.putExtra("Dtype", userModel.getSpecialization());
+                context.startActivity(intent);
+            }
+        });
 
     }
 

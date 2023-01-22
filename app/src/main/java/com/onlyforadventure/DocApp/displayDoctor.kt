@@ -45,7 +45,8 @@ class displayDoctor : AppCompatActivity(),SelectListener {
                             dataSnapshot.child("name").getValue(String::class.java),
                             dataSnapshot.child("email").getValue(String::class.java),
                             dataSnapshot.child("specialist").getValue(String::class.java),
-                            dataSnapshot.child("phone").getValue(String::class.java)
+                            dataSnapshot.child("phone").getValue(String::class.java),
+                            dataSnapshot.child("uid").getValue(String::class.java)
                         )
                         list.add(userModel)
                         spec.setText("Specialization: "+specialization)
@@ -57,9 +58,11 @@ class displayDoctor : AppCompatActivity(),SelectListener {
                                 dataSnapshot.child("email").getValue(String::class.java),
                                 dataSnapshot.child("specialist").getValue(String::class.java),
                                 dataSnapshot.child("phone").getValue(String::class.java),
+                                dataSnapshot.child("uid").getValue(String::class.java)
+
                             )
                             list.add(userModel)
-                            spec.setText("Specialization: All")
+                            spec.text = "Specialization: All"
                         }
                     }
                 }

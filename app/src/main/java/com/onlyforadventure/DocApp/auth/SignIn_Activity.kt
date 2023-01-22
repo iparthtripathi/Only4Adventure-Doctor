@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.MotionEvent
+import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,7 @@ import com.onlyforadventure.DocApp.HomeActivity
 import com.onlyforadventure.DocApp.R
 import com.onlyforadventure.DocApp.databinding.ActivitySignInBinding
 import com.onlyforadventure.DocApp.encryptionHelper.Encryption
+import com.onlyforadventure.DocApp.waitPage
 import com.squareup.picasso.Picasso
 import java.util.*
 
@@ -47,16 +49,7 @@ class SignIn_Activity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        dbreference = FirebaseDatabase.getInstance().getReference("Users")
-        user= FirebaseAuth.getInstance().currentUser!!
-        val uID=user.uid
-        dbreference.child(uID).addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val user = snapshot.getValue(User::class.java)
-                verified= user?.isVerfied.toString()
-            }
-            override fun onCancelled(error: DatabaseError) {}
-        })
+
 
         googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build()
@@ -106,8 +99,10 @@ class SignIn_Activity : AppCompatActivity() {
         binding.loginButton.setOnClickListener {
             val email = binding.SignInEmail.text.toString()
             val password = binding.SignInPassword.text.toString()
+            binding.loginButton.visibility= View.GONE
+            binding.progressbar.visibility=View.VISIBLE
 
-            if(verified=="true"){
+
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 if (password.length > 7) {
 
@@ -140,9 +135,9 @@ class SignIn_Activity : AppCompatActivity() {
                                         TODO("Not yet implemented")
                                     }
                                 })
-
-                                startActivity(Intent(this, HomeActivity::class.java))
-                                finish()
+                                binding.loginButton.visibility= View.VISIBLE
+                                binding.progressbar.visibility=View.GONE
+                                startActivity(Intent(this, waitPage::class.java))
 
                             } else {
                                 u.sendEmailVerification()
@@ -151,21 +146,25 @@ class SignIn_Activity : AppCompatActivity() {
                                     "Email Verification sent to your mail",
                                     Toast.LENGTH_LONG
                                 ).show()
+                                binding.loginButton.visibility= View.VISIBLE
+                                binding.progressbar.visibility=View.GONE
                             }
                         } else
                             Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                        binding.loginButton.visibility= View.VISIBLE
+                        binding.progressbar.visibility=View.GONE
                     }
                 } else {
                     Toast.makeText(this, "Password length must be greater than 8", Toast.LENGTH_SHORT).show()
+                    binding.loginButton.visibility= View.VISIBLE
+                    binding.progressbar.visibility=View.GONE
                 }
 
             } else {
                 Toast.makeText(this, "Please enter the details!", Toast.LENGTH_SHORT).show()
+                binding.loginButton.visibility= View.VISIBLE
+                binding.progressbar.visibility=View.GONE
             }
-        }
-        else{
-            Toast.makeText(this,"Please wait while our servers verify your License ID",Toast.LENGTH_LONG).show()
-        }
         }
     }
 

@@ -46,7 +46,8 @@ class locDoctor: AppCompatActivity(),SelectListener {
                             dataSnapshot.child("name").getValue(String::class.java),
                             dataSnapshot.child("email").getValue(String::class.java),
                             dataSnapshot.child("specialist").getValue(String::class.java),
-                            dataSnapshot.child("phone").getValue(String::class.java)
+                            dataSnapshot.child("phone").getValue(String::class.java),
+                            dataSnapshot.child("uid").getValue(String::class.java)
                         )
                         list.add(userModel)
                         locTextView.setText("Location: "+loc)
