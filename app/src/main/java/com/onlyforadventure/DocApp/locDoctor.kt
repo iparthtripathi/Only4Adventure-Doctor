@@ -47,6 +47,7 @@ class locDoctor: AppCompatActivity(),SelectListener {
                             dataSnapshot.child("email").getValue(String::class.java),
                             dataSnapshot.child("specialist").getValue(String::class.java),
                             dataSnapshot.child("phone").getValue(String::class.java),
+                            dataSnapshot.child("imgUrl").getValue(String::class.java),
                             dataSnapshot.child("uid").getValue(String::class.java)
                         )
                         list.add(userModel)

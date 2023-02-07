@@ -46,24 +46,27 @@ class displayDoctor : AppCompatActivity(),SelectListener {
                             dataSnapshot.child("email").getValue(String::class.java),
                             dataSnapshot.child("specialist").getValue(String::class.java),
                             dataSnapshot.child("phone").getValue(String::class.java),
+                            dataSnapshot.child("imgUrl").getValue(String::class.java),
                             dataSnapshot.child("uid").getValue(String::class.java)
                         )
                         list.add(userModel)
                         spec.setText("Specialization: "+specialization)
                     }
-                    if(specialization=="All"){
-                        for (dataSnapshot in snapshot.children) {
-                            val userModel = userModel(
-                                dataSnapshot.child("name").getValue(String::class.java),
-                                dataSnapshot.child("email").getValue(String::class.java),
-                                dataSnapshot.child("specialist").getValue(String::class.java),
-                                dataSnapshot.child("phone").getValue(String::class.java),
-                                dataSnapshot.child("uid").getValue(String::class.java)
 
-                            )
-                            list.add(userModel)
-                            spec.text = "Specialization: All"
-                        }
+                }
+                if(specialization=="All"){
+                    for (dataSnapshot in snapshot.children) {
+                        val userModel = userModel(
+                            dataSnapshot.child("name").getValue(String::class.java),
+                            dataSnapshot.child("email").getValue(String::class.java),
+                            dataSnapshot.child("specialist").getValue(String::class.java),
+                            dataSnapshot.child("phone").getValue(String::class.java),
+                            dataSnapshot.child("imgUrl").getValue(String::class.java),
+                            dataSnapshot.child("uid").getValue(String::class.java)
+
+                        )
+                        list.add(userModel)
+                        spec.text = "Specialization: All"
                     }
                 }
                 userAdapter.notifyDataSetChanged()

@@ -3,17 +3,26 @@ package com.onlyforadventure.DocApp;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.onlyforadventure.DocApp.appointment.AppointmentBooking;
+import com.squareup.picasso.Picasso;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class userAdapter extends RecyclerView.Adapter<userAdapter.userViewHolder> {
@@ -43,6 +52,8 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.userViewHolder
         holder.email.setText(userModel.getEmail());
         holder.specialization.setText(userModel.getSpecialization());
         holder.phone.setText(userModel.getPhone());
+        Bitmap bitmap=getBitmapFromURL(userModel.getImg());
+        Picasso.get().load(userModel.getImg()).into(holder.imageView);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +80,7 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.userViewHolder
 
         TextView name,email,specialization,phone;
         CardView cardView;
+        ImageView imageView;
 
         public userViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -77,8 +89,29 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.userViewHolder
             email=itemView.findViewById(R.id.doctorEmail);
             specialization=itemView.findViewById(R.id.specialization);
             phone=itemView.findViewById(R.id.phone);
+            imageView=itemView.findViewById(R.id.picture);
             cardView=itemView.findViewById(R.id.recyclerLayout);
         }
     }
 
+    public static Bitmap getBitmapFromURL(String src) {
+        try {
+
+            //uncomment below line in image name have spaces.
+            //src = src.replaceAll(" ", "%20");
+
+            URL url = new URL(src);
+
+            HttpURLConnection connection = (HttpURLConnection) url
+                    .openConnection();
+            connection.setDoInput(true);
+            connection.connect();
+            InputStream input = connection.getInputStream();
+            Bitmap myBitmap = BitmapFactory.decodeStream(input);
+            return myBitmap;
+        } catch (Exception e) {
+            Log.d("vk21", e.toString());
+            return null;
+        }
+    }
 }

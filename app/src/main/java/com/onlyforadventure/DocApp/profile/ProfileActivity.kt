@@ -63,7 +63,7 @@ class ProfileActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val user = snapshot.getValue(User::class.java)
                 val imgUrl= user?.imgUrl
-                val imgBit=Picasso.get().load(imgUrl).into(binding.profilePicture)
+                Picasso.get().load(imgUrl).into(binding.profilePicture)
             }
             override fun onCancelled(error: DatabaseError) {}
         })
