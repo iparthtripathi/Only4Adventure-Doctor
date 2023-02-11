@@ -94,6 +94,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/createUPI"
             android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_height="70dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
@@ -106,6 +107,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="match_parent">
 
                 <ImageView

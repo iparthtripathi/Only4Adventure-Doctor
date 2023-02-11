@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
+import com.onlyforadventure.DocApp.auth.SignIn_Activity
 import com.onlyforadventure.DocApp.auth.User
 import com.onlyforadventure.DocApp.databinding.ActivityProfileBinding
 import com.squareup.picasso.Picasso
@@ -46,6 +47,21 @@ class ProfileActivity : AppCompatActivity() {
         binding.ProfileToEdit.setOnClickListener {
             startActivity(Intent(baseContext, EditProfileActivity::class.java))
         }
+        binding.logout.setOnClickListener{
+            logoutFun()
+        }
+
+    }
+
+    private fun logoutFun() {
+        val editor = sharedPreference.edit()
+        editor.clear()
+        editor.apply()
+        FirebaseAuth.getInstance().signOut()
+        val intent = Intent(this, SignIn_Activity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(intent)
+        finish()
 
     }
 

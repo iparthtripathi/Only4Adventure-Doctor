@@ -27,9 +27,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout"
-            android:layout_width="359dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.004"
@@ -49,16 +49,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profilePicture"
-                android:layout_width="74dp"
-                android:layout_height="69dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.853"
-                app:layout_constraintStart_toEndOf="@+id/textView"
-                app:layout_constraintTop_toTopOf="parent" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -71,12 +66,70 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilePicture"
+                android:layout_width="119dp"
+                android:layout_height="105dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_6sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <Space
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+                    <ImageView
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:id="@+id/ProfileToEdit"
+                        android:src="@drawable/edit1"
+                        android:layout_height="@dimen/_50sdp"/>
+                    <Space
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+                    <ImageView
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:src="@drawable/wallet1"
+                        android:layout_height="@dimen/_50sdp"/>
+                    <Space
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+                    <ImageView
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:id="@+id/logout"
+                        android:src="@drawable/wallet2"
+                        android:layout_height="@dimen/_50sdp"/>
+                    <Space
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
                 android:layout_width="330dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="0dp"
                 android:elevation="5dp"
                 app:cardCornerRadius="10dp"
                 android:background="@drawable/cardview_background"
@@ -157,8 +210,9 @@
             </androidx.cardview.widget.CardView>
 
             <Button
-                android:id="@+id/ProfileToEdit"
+
                 android:layout_width="330dp"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"

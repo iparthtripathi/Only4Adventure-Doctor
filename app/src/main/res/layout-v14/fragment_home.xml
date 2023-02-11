@@ -100,6 +100,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/dm_sans"
                     android:layout_marginTop="10dp"
+                    android:visibility="gone"
                     android:text="Search a Doctor by Name, Email or Phone"
                     android:textColor="@color/black"
                     android:textSize="15sp"
@@ -110,6 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:visibility="gone"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -190,7 +192,7 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@drawable/all"
+                                android:src="@drawable/general"
                                 android:scaleType="fitXY"
                                 android:alpha="0.5"/>
                             <TextView
@@ -213,7 +215,7 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@drawable/cardiology"
+                                android:src="@drawable/cardio1"
                                 android:scaleType="fitXY"
                                 android:alpha="0.5"/>
                             <TextView
@@ -311,7 +313,7 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@drawable/ortho"
+                                android:src="@drawable/ortho1"
                                 android:scaleType="fitXY"
                                 android:alpha="0.5"/>
                             <TextView
