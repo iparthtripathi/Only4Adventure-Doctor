@@ -57,10 +57,7 @@
 
         </LinearLayout>
 
-
-
     </LinearLayout>
-
 
 
 
@@ -156,6 +153,8 @@
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
                 <TextView
                     android:id="@+id/specialiseTextView"
