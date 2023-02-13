@@ -24,9 +24,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/dm_sans_bold"
-            android:text="Tell us about you"
+            android:text="Tell us about yourself"
             android:textColor="@color/white"
-            android:textSize="35sp"
+            android:textSize="@dimen/_20sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.099"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +36,7 @@
             android:id="@+id/signUph2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/dm_sans"
             android:text="Please choose the relevant option"
@@ -69,6 +70,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:ss_animationDuration="600"
+            android:visibility="gone"
             app:ss_animationType="curved"
             app:ss_iconPadding="18dp"
             app:ss_iconSize="22dp"
@@ -105,7 +107,7 @@
             android:id="@+id/ageInput"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="180dp"
             android:background="@drawable/editfield"
             android:ems="10"
             android:fontFamily="@font/dm_sans"
@@ -114,10 +116,10 @@
             android:paddingLeft="10dp"
             android:textColor="@color/black"
             android:textColorHint="@android:color/darker_gray"
-            app:layout_constraintEnd_toEndOf="@+id/stickySwitch"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.517"
-            app:layout_constraintStart_toStartOf="@+id/stickySwitch"
-            app:layout_constraintTop_toBottomOf="@+id/stickySwitch" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

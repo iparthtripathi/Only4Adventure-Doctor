@@ -19,9 +19,9 @@ class SignUp_First : AppCompatActivity() {
 
         binding.nextButton.setOnClickListener {
             val age = binding.ageInput.text.toString().trim()
-            val isDoctor = binding.stickySwitch.getText()
+            val isDoctor = "Doctor"
 
-            if (isDoctor == "Doctor" && (Integer.parseInt(age) < 23)) {
+            if ( Integer.parseInt(age) < 23) {
                 Toast.makeText(baseContext, "23 is the minimum age of a Doctor", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }else if (age.isEmpty()) {
