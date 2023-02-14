@@ -33,6 +33,7 @@ class SignUp_Activity : AppCompatActivity() {
     private lateinit var img: Uri
     private lateinit var isDoctor: String
     private lateinit var age: String
+    private var flag=0
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +43,9 @@ class SignUp_Activity : AppCompatActivity() {
 
         isDoctor = intent.extras!!.getString("isDoctor").toString()
         age = intent.extras!!.getString("age").toString()
+        binding.profilePic.requestFocus()
         binding.profilePic.setOnClickListener{
+            flag=1
             val intent= Intent()
             intent.action=Intent.ACTION_GET_CONTENT
             intent.type="image/*"
@@ -109,14 +112,22 @@ class SignUp_Activity : AppCompatActivity() {
         binding.SignUpTypeOfDoctor.setAdapter(adapter)
 
         binding.createAccount.setOnClickListener {
-            val sReference=storage.reference.child("Profile").child(Date().time.toString())
-            sReference.putFile(img).addOnCompleteListener{
-                if(it.isSuccessful){
-                    sReference.downloadUrl.addOnSuccessListener {task->
-                        uploadInfo(task.toString())
 
+            val sReference=storage.reference.child("Profile").child(Date().time.toString())
+            if(sReference.equals(null)){
+                binding.createAccount.visibility=View.GONE
+                binding.progressbar.visibility=View.VISIBLE
+                sReference.putFile(img).addOnCompleteListener{
+                    if(it.isSuccessful){
+                        sReference.downloadUrl.addOnSuccessListener {task->
+                            uploadInfo(task.toString())
+
+                        }
                     }
                 }
+            }
+            else{
+                Toast.makeText(this,"Please Provide a Profile Picture",Toast.LENGTH_LONG).show()
             }
         }
     }

@@ -33,6 +33,15 @@ class PatientAppointmentFragment : Fragment() {
     private lateinit var appointmentList : ArrayList<PatientAppointment>
     private lateinit var sharedPreference : SharedPreferences
 
+    private lateinit var userName : String
+    private lateinit var userEmail : String
+    private lateinit var userPhone : String
+    private lateinit var userPosition: String
+    private lateinit var userType: String
+    private lateinit var userID: String
+    private var userPrescription: String = "false"
+    public var flag=0
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentPatientAppointmentBinding.inflate(inflater, container, false)
@@ -43,6 +52,7 @@ class PatientAppointmentFragment : Fragment() {
         appointmentList = ArrayList()
         appointmentAdapter = PatientAppointmentAdapter(requireActivity(), appointmentList)
 
+        getDataFromSharedPreference()
         val isDoctor = sharedPreference.getString("isDoctor","Not found").toString()
         if (isDoctor == "Doctor")
             binding.toPatientList.visibility = View.VISIBLE
@@ -117,6 +127,20 @@ class PatientAppointmentFragment : Fragment() {
 
         binding.selectDateTextToHide.visibility = View.GONE
 
+    }
+
+    private fun getDataFromSharedPreference() {
+        userID = sharedPreference.getString("uid","Not found").toString()
+        userName = sharedPreference.getString("name","Not found").toString()
+        userEmail = sharedPreference.getString("email","Not found").toString()
+        userPhone = sharedPreference.getString("phone","Not found").toString()
+        userPosition = sharedPreference.getString("isDoctor", "Not found").toString()
+        userPrescription = sharedPreference.getString("prescription", "false").toString()
+
+        if (userPosition == "Doctor")
+            binding.namePreview.text = "Dr. $userName"
+        else
+            binding.namePreview.text = userName
     }
 
     override fun onStart() {
