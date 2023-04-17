@@ -52,6 +52,7 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.userViewHolder
         holder.email.setText(userModel.getEmail());
         holder.specialization.setText(userModel.getSpecialization());
         holder.phone.setText(userModel.getPhone());
+        holder.fees.setText(userModel.getFees());
         Bitmap bitmap=getBitmapFromURL(userModel.getImg());
         Picasso.get().load(userModel.getImg()).into(holder.imageView);
 
@@ -78,7 +79,7 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.userViewHolder
 
     public static class userViewHolder extends RecyclerView.ViewHolder{
 
-        TextView name,email,specialization,phone;
+        TextView name,email,specialization,phone,fees;
         CardView cardView;
         ImageView imageView;
 
@@ -91,6 +92,7 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.userViewHolder
             phone=itemView.findViewById(R.id.phone);
             imageView=itemView.findViewById(R.id.picture);
             cardView=itemView.findViewById(R.id.recyclerLayout);
+            fees=itemView.findViewById(R.id.fees);
         }
     }
 

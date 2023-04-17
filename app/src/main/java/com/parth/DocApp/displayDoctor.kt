@@ -47,6 +47,7 @@ class displayDoctor : AppCompatActivity(),SelectListener {
                             dataSnapshot.child("specialist").getValue(String::class.java),
                             dataSnapshot.child("phone").getValue(String::class.java),
                             dataSnapshot.child("imgUrl").getValue(String::class.java),
+                            dataSnapshot.child("fees").getValue(String::class.java),
                             dataSnapshot.child("uid").getValue(String::class.java)
                         )
                         list.add(userModel)
@@ -62,6 +63,7 @@ class displayDoctor : AppCompatActivity(),SelectListener {
                             dataSnapshot.child("specialist").getValue(String::class.java),
                             dataSnapshot.child("phone").getValue(String::class.java),
                             dataSnapshot.child("imgUrl").getValue(String::class.java),
+                            dataSnapshot.child("fees").getValue(String::class.java),
                             dataSnapshot.child("uid").getValue(String::class.java)
 
                         )

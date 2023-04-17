@@ -114,7 +114,7 @@ class SignUp_Activity : AppCompatActivity() {
         binding.createAccount.setOnClickListener {
 
             val sReference=storage.reference.child("Profile").child(Date().time.toString())
-            if(sReference.equals(null)){
+            if(flag==1){
                 binding.createAccount.visibility=View.GONE
                 binding.progressbar.visibility=View.VISIBLE
                 sReference.putFile(img).addOnCompleteListener{
@@ -123,6 +123,10 @@ class SignUp_Activity : AppCompatActivity() {
                             uploadInfo(task.toString())
 
                         }
+                    }
+                    else{
+                        binding.createAccount.visibility=View.VISIBLE
+                        binding.progressbar.visibility=View.GONE
                     }
                 }
             }
@@ -144,13 +148,14 @@ class SignUp_Activity : AppCompatActivity() {
                         //Create user object
                         val statsData = "0:0:0:0:0?0:0:0:0:0?0:0:0:0:0?0:0:0:0:0"
                         val user = User(binding.SignUpName.text.toString().trim(), binding.SignUpEmail.text.toString().trim(),
-                            RemoveCountryCode.remove(binding.SignUpPhone.text.toString().trim()), uid, isDoctor, age, binding.SignUpTypeOfDoctor.text.toString().trim(),"false",binding.license.text.toString().trim(), binding.location.text.toString().trim(),
+                            RemoveCountryCode.remove(binding.SignUpPhone.text.toString().trim()), uid, isDoctor, age, binding.SignUpTypeOfDoctor.text.toString().trim(),"true",binding.license.text.toString().trim(), binding.location.text.toString().trim(),binding.fees.text.toString().trim(),
                             imgUrl, statsData, "false")
 
                         //add user data in the Realtime Database
                         db.child(u?.uid!!).setValue(user).addOnCompleteListener { it1 ->
                             if (it1.isSuccessful) {
                                 db.child(u.uid).child("verified").child("verfied").setValue("false")
+                                db.child(u.uid).child("Status").child("status").setValue(true)
                                 u.sendEmailVerification()
                                 Toast.makeText(this, "Email Verification sent to your mail", Toast.LENGTH_LONG).show()
                                 val intent=Intent(this,enterMobile::class.java)
